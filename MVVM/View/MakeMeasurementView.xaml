@@ -1,0 +1,114 @@
+﻿<UserControl x:Class="ST3PRJ3.MVVM.View.MakeMeasurementView"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ST3PRJ3.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="650"
+             
+             Background="Transparent">
+    <Grid>
+
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+
+                <TextBox Width="200"
+                         HorizontalAlignment="Left"
+                         Margin="10,0,10,10"
+                         Background="Transparent"
+                         Foreground="White"
+                         Text="CPR: 000000-9999"
+                         FontSize="22"></TextBox>
+
+                <!--<Image Source="/Images/Test3.png"></Image>-->
+                <lvc:CartesianChart Height="150"
+                                    Width="400">
+
+                </lvc:CartesianChart>
+
+                <lvc:CartesianChart Height="150"
+                                    Width="400">
+
+                </lvc:CartesianChart>
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+
+            <TextBox Width="auto"
+                     
+                     HorizontalAlignment="Center"
+                     Margin="10,30,10,10"
+                     Background="Transparent"
+                     Foreground="White"
+                     Text="120/&#x0a;80"
+                     FontSize="30"
+                     FontWeight="Bold"></TextBox>
+
+                <TextBox Width="auto"
+                     
+                         HorizontalAlignment="Center"
+                         Margin="10,30,10,10"
+                         Background="Transparent"
+                         Foreground="White"
+                         Text="82"
+                         FontSize="30"
+                         FontWeight ="Bold"></TextBox>
+
+            </StackPanel>
+
+
+
+
+
+
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+            <RadioButton Grid.Column="0" Content="Start"
+                         Height="50"
+                         FontSize="22"
+                         Foreground="White"
+                         Background="Green"
+                         Style="{StaticResource CenteredButton}"/>
+            <RadioButton Grid.Column="1" Content="Stop"
+                         Height="50"
+                         FontSize="22"
+                         Foreground="White"
+                         Background="Red"
+                         Style="{StaticResource CenteredButton}"/>
+            <RadioButton Grid.Column="3" Content="Gem måling"
+                         Height="50"
+                         FontSize="22"
+                         Foreground="White"
+                         Style="{StaticResource CenteredButton}"/>
+
+        </Grid>
+
+
+        
+    </Grid>
+
+
+</UserControl>

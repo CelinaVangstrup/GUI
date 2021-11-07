@@ -1,0 +1,36 @@
+﻿<Application x:Class="ST3PRJ3.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ST3PRJ3"
+             xmlns:viewModel ="clr-namespace:ST3PRJ3.MVVM.ViewModel"
+             xmlns:view ="clr-namespace:ST3PRJ3.MVVM.View"
+             StartupUri="MVVM/View/HealthcareMainWindow.xaml">
+
+
+    <Application.Resources> 
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/ButtonSide.xaml"/>
+                <ResourceDictionary Source="Theme/SearchBox.xaml"/>
+                <ResourceDictionary Source="Theme/CenteredButton.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:MakeMeasurementViewModel}">
+                <view:MakeMeasurementView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:PatientInformationViewModel}">
+                <view:PatientInformationView/>
+            </DataTemplate>
+
+
+
+        </ResourceDictionary>
+    </Application.Resources>
+
+    
+</Application>
