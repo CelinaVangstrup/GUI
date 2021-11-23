@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using ST3PRJ3.Core;
 
+
 namespace ST3PRJ3.MVVM.ViewModel
 {
     class MainViewModel : ObservableObject
@@ -15,9 +16,6 @@ namespace ST3PRJ3.MVVM.ViewModel
         public RelayCommand MakeMeasurementViewCommand { get; set; }
 
         public RelayCommand PatientInformationViewCommand { get; set; }
-
-
-
 
         public HomeViewModel HomeVM { get; set; }
         public MakeMeasurementViewModel MakeMeasurementVM { get; set; }

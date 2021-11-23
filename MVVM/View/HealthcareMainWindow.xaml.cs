@@ -19,9 +19,16 @@ namespace ST3PRJ3.View
     /// </summary>
     public partial class HealthcareMainWindow : Window
     {
+
         public HealthcareMainWindow()
         {
             InitializeComponent();
+        }
+
+        private void MainWindow_MouseDown(object sender, MouseButtonEventArgs e) //Flyt rundt på vinduet med mus
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

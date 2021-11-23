@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ST3PRJ3.MVVM.ViewModel;
+using ST3PRJ3.Service;
 
 namespace ST3PRJ3.View
 {
@@ -22,6 +24,7 @@ namespace ST3PRJ3.View
         public LogIn()
         {
             InitializeComponent();
+            DataContext = new LoginViewModel();
         }
     }
 }

@@ -5,7 +5,8 @@
              xmlns:viewModel ="clr-namespace:ST3PRJ3.MVVM.ViewModel"
              xmlns:view ="clr-namespace:ST3PRJ3.MVVM.View"
              StartupUri="MVVM/View/HealthcareMainWindow.xaml">
-
+             <!--StartupUri="MVVM/View/LogIn.xaml"-->
+   
 
     <Application.Resources> 
         <ResourceDictionary>
