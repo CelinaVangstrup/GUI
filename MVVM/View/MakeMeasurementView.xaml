@@ -4,14 +4,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ST3PRJ3.MVVM.View"
+             xmlns:local="clr-namespace:ST3PRJ3.MVVM.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="650"
-             
+             d:DesignHeight="400" 
+             d:DesignWidth="650"
              Background="Transparent">
+   
+
+
     <Grid>
-
-
 
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -35,15 +36,32 @@
                          FontSize="22"></TextBox>
 
                 <!--<Image Source="/Images/Test3.png"></Image>-->
-                <lvc:CartesianChart Height="150"
-                                    Width="400">
+                <lvc:CartesianChart Height="300"
+                                    Width="500"
+                                    AnimationsSpeed="0:0:0:0.5"
+                                    Hoverable="False" DataTooltip="{x:Null}">
+                    <lvc:CartesianChart.Series>
+                        <lvc:LineSeries Values="{Binding ChartValues}" 
+                                PointGeometry="{x:Null}" 
+                                LineSmoothness="1"
+                                StrokeThickness="2" 
+                                Stroke="#F34336"
+                                Fill="Transparent"/>
+                    </lvc:CartesianChart.Series>
+                    <lvc:CartesianChart.AxisX>
+                        <lvc:Axis LabelFormatter="{Binding DateTimeFormatter}" 
+                          MaxValue="{Binding AxisMax}" 
+                          MinValue="{Binding AxisMin}"
+                          Unit="{Binding AxisUnit}">
+                            <lvc:Axis.Separator>
+                                <lvc:Separator Step="{Binding AxisStep}" />
+                            </lvc:Axis.Separator>
+                        </lvc:Axis>
+                    </lvc:CartesianChart.AxisX>
 
                 </lvc:CartesianChart>
+                
 
-                <lvc:CartesianChart Height="150"
-                                    Width="400">
-
-                </lvc:CartesianChart>
 
             </StackPanel>
 
@@ -86,23 +104,26 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-            <RadioButton Grid.Column="0" Content="Start"
+            <Button Grid.Column="0" Content="Start"
                          Height="50"
                          FontSize="22"
                          Foreground="White"
                          Background="Green"
-                         Style="{StaticResource CenteredButton}"/>
+                         
+                         Command="{Binding Path=StartButtonClickCommand}"/>
             <RadioButton Grid.Column="1" Content="Stop"
                          Height="50"
                          FontSize="22"
                          Foreground="White"
                          Background="Red"
-                         Style="{StaticResource CenteredButton}"/>
+                         Style="{StaticResource CenteredButton}"
+                         Command="{Binding Path=StopButtonClickCommand}"/>
             <RadioButton Grid.Column="3" Content="Gem måling"
                          Height="50"
                          FontSize="22"
                          Foreground="White"
-                         Style="{StaticResource CenteredButton}"/>
+                         Style="{StaticResource CenteredButton}"
+                         Command="{Binding Path=SaveButtonClickCommand}"/>
 
         </Grid>
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ST3PRJ3.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,16 +19,14 @@ namespace ST3PRJ3.MVVM.View
     /// <summary>
     /// Interaction logic for MakeMeasurementView.xaml
     /// </summary>
-    public partial class MakeMeasurementView : UserControl
+    public partial class MakeMeasurementView : UserControl, IMakeMeasurementViewModel
     {
         public MakeMeasurementView()
         {
             InitializeComponent();
+            DataContext = new MakeMeasurementViewModel();
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
 
-        }
     }
 }

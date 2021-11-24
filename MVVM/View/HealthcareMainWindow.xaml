@@ -3,20 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ST3PRJ3.View"
-        xmlns:viewModel ="clr-namespace:ST3PRJ3.MVVM.ViewModel"
-
+        xmlns:viewModel ="clr-namespace:ST3PRJ3.MVVM.ViewModel" 
         mc:Ignorable="d"
-        Height="450" Width="800"
+        Height="450" Width="1000"
         WindowStyle ="None"
-        ResizeMode="NoResize"
+        ResizeMode="CanResizeWithGrip"
         Background="Transparent"
         AllowsTransparency="True"
-        MouseDown="MainWindow_MouseDown">
+        MouseDown="MainWindow_MouseDown"
+        >
 
     <Window.DataContext>
         <viewModel:MainViewModel></viewModel:MainViewModel>
     </Window.DataContext>
+
+
+
 
     <Border Background="LightGray"
             CornerRadius="15">

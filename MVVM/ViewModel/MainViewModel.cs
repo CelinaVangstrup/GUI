@@ -20,7 +20,7 @@ namespace ST3PRJ3.MVVM.ViewModel
         public HomeViewModel HomeVM { get; set; }
         public MakeMeasurementViewModel MakeMeasurementVM { get; set; }
         public PatientInformationViewModel PatientInformationVM { get; set; }
-
+        public MakeMeasurementViewModel MakeMeasurementViewModel { get; set; }
 
         private object _currentView;
 

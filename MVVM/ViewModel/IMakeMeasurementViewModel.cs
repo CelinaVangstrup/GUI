@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer
+namespace ST3PRJ3.MVVM.ViewModel
 {
-    internal class Program
+    public interface IMakeMeasurementViewModel
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
