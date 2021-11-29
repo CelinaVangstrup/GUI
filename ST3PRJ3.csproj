@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JetBrains.Annotations, Version=2021.3.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>packages\JetBrains.Annotations.2021.3.0\lib\net20\JetBrains.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
     </Reference>
@@ -92,6 +95,12 @@
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="Core\ViewModelBase.cs" />
+    <Compile Include="Data\BloodPressureThread.cs" />
+    <Compile Include="Data\BloodPressureFileReader.cs" />
+    <Compile Include="DTO\DTO_BloodPressure.cs" />
+    <Compile Include="MVVM\Models\AbstractMeasurement.cs" />
+    <Compile Include="MVVM\Models\IMeasurementObserver.cs" />
+    <Compile Include="MVVM\Models\Measurement.cs" />
     <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LoginViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
@@ -195,7 +204,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="MVVM\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\BlodPressure.png" />

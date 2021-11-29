@@ -17,7 +17,7 @@ namespace ST3PRJ3.MVVM.ViewModel
         public ICommand LoginButtonClickCommand { get; set; }
         public LoginViewModel()
         {
-            LoginButtonClickCommand = new RelayCommand(LoginButtonClick);
+            //LoginButtonClickCommand = new RelayCommand(LoginButtonClick);
         }
         
         public string Username

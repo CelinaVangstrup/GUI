@@ -19,12 +19,11 @@ namespace ST3PRJ3.MVVM.View
     /// <summary>
     /// Interaction logic for MakeMeasurementView.xaml
     /// </summary>
-    public partial class MakeMeasurementView : UserControl
+    public partial class MakeMeasurementView : Window
     {
         public MakeMeasurementView()
         {
             InitializeComponent();
-            DataContext = new MakeMeasurementViewModel();
         }
 
 

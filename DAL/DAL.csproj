@@ -45,11 +45,5 @@
     <Compile Include="IData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\DTO\DTO.csproj">
-      <Project>{06aea944-50b1-4def-b6b4-b8f310b00b15}</Project>
-      <Name>DTO</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
