@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel ="clr-namespace:ST3PRJ3.MVVM.ViewModel" 
+        xmlns:views="clr-namespace:ST3PRJ3.MVVM.View"
         mc:Ignorable="d"
         Height="450" Width="1000"
         WindowStyle ="None"
@@ -81,10 +82,11 @@
                             Grid.ColumnSpan="2"
                             Margin="10.333,9.667,10,0"
                             Content="{Binding CurrentView}" Height="355" VerticalAlignment="Top"/>
+            
+            
+            
         </Grid>
 
-
-
-
     </Border>
+    
 </Window>

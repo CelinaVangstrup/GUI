@@ -14,7 +14,7 @@ using System.Windows.Input;
 
 namespace ST3PRJ3.MVVM.ViewModel
 {
-    class MakeMeasurementViewModel : ViewModelBase, IMakeMeasurementViewModel
+    class MakeMeasurementViewModel : ViewModelBase
     {
        
         public ICommand StartButtonClickCommand { get; set; }
