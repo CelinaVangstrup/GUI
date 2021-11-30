@@ -101,6 +101,7 @@
     <Compile Include="MVVM\Models\AbstractMeasurement.cs" />
     <Compile Include="MVVM\Models\IMeasurementObserver.cs" />
     <Compile Include="MVVM\Models\Measurement.cs" />
+    <Compile Include="Data\MeasuremntDataProvider.cs" />
     <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LoginViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />

@@ -84,7 +84,7 @@
                          Margin="10,30,10,10"
                          Background="Transparent"
                          Foreground="White"
-                         Text="{Binding Path=Puls}"
+                         Text="{Binding Path=BloodPressure}"
                          FontSize="30"
                          FontWeight ="Bold"></TextBox>
                 

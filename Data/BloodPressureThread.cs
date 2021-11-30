@@ -22,10 +22,10 @@ namespace ST3PRJ3.Data
         public void MeasureTheBloodpressure()
         {
             BloodPressureFileReader bloodPressureFileReader = new BloodPressureFileReader();
-            //CardDataProvider cardDataProvider = new CardDataProvider();
+            MeasuremntDataProvider measurementDataProvider = new MeasuremntDataProvider();
 
             List<DTO_BloodPressure> bloodPressureInFile = bloodPressureFileReader.ReadBloodPressureInFile(_path);
-            //cardDataProvider.UpdateCardData(cardsInFile, _cardData);
+            measurementDataProvider.UpdateBPData(bloodPressureInFile, _BpData);
         }
     }
 }

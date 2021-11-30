@@ -3,6 +3,7 @@ using LiveCharts;
 using LiveCharts.Configurations;
 using ST3PRJ3.Core;
 using ST3PRJ3.Data;
+using ST3PRJ3.DTO;
 using ST3PRJ3.MVVM.Models;
 using System;
 using System.Collections.Generic;
@@ -25,8 +26,9 @@ namespace ST3PRJ3.MVVM.ViewModel
 
         public ICommand StopButtonClickCommand { get; set; }
         public ICommand SavButtonClickCommand { get; set; }
-        private string _puls;
-        private string _file = @"..\..\..\BPfiles\MaalingGris.txt";
+        private int _bloodPressure;
+        private ChartValues<double> _ChartValues;
+        private string _file = @"C:\Users\Søren Mehlsen\OneDrive\source\repos\GUI\BPfiles\MaalingGris.txt";
         //public ChartValues<MeasureModel> ChartValues { get; set; }
         //public Func<double, string> DateTimeFormatter { get; set; }
         private readonly Measurement _measurementModel = new Measurement();
@@ -46,12 +48,22 @@ namespace ST3PRJ3.MVVM.ViewModel
             }
         }
 
-        public string Puls
+        public ChartValues<double> ChartValues
         {
-            get => _puls;
+            get => _ChartValues;
             set
             {
-                _puls = value;
+                _ChartValues = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int BloodPressure
+        {
+            get => _bloodPressure;
+            set
+            {
+                _bloodPressure = value;
                 OnPropertyChanged();
             }
         }
@@ -96,9 +108,23 @@ namespace ST3PRJ3.MVVM.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void Update()
+        public void Update(AbstractMeasurement.UpdatedField field)
         {
-            throw new NotImplementedException();
+            BloodPressure = _measurementModel.BloodPressure;
+            //ChartValues = _measurementModel.BloodPressure;
+            //BloodPressure.Equals(Convert.ToDouble(_measurementModel.BloodPressure));
+            //ChartValues.Add(Convert.ToDouble(_measurementModel.BloodPressure));
+
+            //switch (field)
+            //{
+            //    case AbstractMeasurement.UpdatedField.BPCount:
+            //        {
+            //            BloodPressure = _measurementModel.BloodPressure;
+            //        }
+            //        break;
+            //    default:
+            //        throw new ArgumentOutOfRangeException(nameof(field), field, null);
+            //}
         }
     }
 }

@@ -22,12 +22,12 @@ namespace ST3PRJ3.Data
             {
                 // split data in file
                 string[] split = line.Split(new char[] { ' ' });
-                int value = Convert.ToInt32(split[0]);
+                double value = Convert.ToDouble(split[0]);
                 string enhed = split[1];
 
                 // create card
                 DTO_BloodPressure bp = new DTO_BloodPressure();
-                bp.Value = value;
+                bp.Value = Convert.ToInt32(value);
                 //bp.Enhed = enhed;
 
                 // add card to list

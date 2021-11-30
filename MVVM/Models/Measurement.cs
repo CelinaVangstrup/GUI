@@ -10,7 +10,9 @@ namespace ST3PRJ3.MVVM.Models
     {
         private int systolic;
         private int diastolic;
-        private int bloodPressure;
+        private int _bloodPressure;
+
+        private object bloodPressureLock = new object();
 
         public int Systolic
         {
@@ -24,15 +26,16 @@ namespace ST3PRJ3.MVVM.Models
             set => diastolic = value;
         }
 
-        public int BloodPressure
+        public int BloodPressure => _bloodPressure;
+
+        public void UpdateBloodPressure(int value)
         {
-            get => bloodPressure;
-            set => bloodPressure = value;
+            lock (bloodPressureLock)
+            {
+                _bloodPressure = value;
+                Notify(UpdatedField.BPCount);
+            }
         }
 
-        public void MeasurementComplete()
-        {
-            Notify();
-        }
     }
 }
