@@ -84,6 +84,7 @@ namespace ST3PRJ3.MVVM.ViewModel
         {
             BloodPressureThread bloodPressureThread = new BloodPressureThread(_file, _measurementModel);
             Thread bpThread = new Thread(bloodPressureThread.MeasureTheBloodpressure);
+            bpThread.IsBackground = true;
             bpThread.Start();
 
         }

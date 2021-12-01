@@ -23,9 +23,14 @@ namespace ST3PRJ3.Data
         {
             BloodPressureFileReader bloodPressureFileReader = new BloodPressureFileReader();
             MeasuremntDataProvider measurementDataProvider = new MeasuremntDataProvider();
+            BloodPressureUDPReader bloodPressureUDPReader = new BloodPressureUDPReader();
 
             List<DTO_BloodPressure> bloodPressureInFile = bloodPressureFileReader.ReadBloodPressureInFile(_path);
+            List<DTO_BloodPressure> bloodPressureFromUDP = bloodPressureUDPReader.ReadBloodPressureFromUDP(_path);
+           
             measurementDataProvider.UpdateBPData(bloodPressureInFile, _BpData);
+            measurementDataProvider.UpdateBPData(bloodPressureFromUDP, _BpData);
+
         }
     }
 }

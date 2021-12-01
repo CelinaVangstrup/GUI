@@ -97,6 +97,7 @@
     <Compile Include="Core\ViewModelBase.cs" />
     <Compile Include="Data\BloodPressureThread.cs" />
     <Compile Include="Data\BloodPressureFileReader.cs" />
+    <Compile Include="Data\BloodPressureUDPReader.cs" />
     <Compile Include="DTO\DTO_BloodPressure.cs" />
     <Compile Include="MVVM\Models\AbstractMeasurement.cs" />
     <Compile Include="MVVM\Models\IMeasurementObserver.cs" />
