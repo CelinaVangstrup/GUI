@@ -10,17 +10,36 @@ namespace ST3PRJ3.MVVM.Models
 {
     public class MeasuremntDataProvider
     {
-        public void UpdateBPData(List<DTO_BloodPressure> bps, Measurement bpData)
+        public void UpdateBPData(List<DTO_BloodPressure> bps, MeasurementModel bpData)
         {
             while (true)
             {
-                foreach (DTO_BloodPressure i in bps)
+                foreach (DTO_BloodPressure x in bps)
                 {
-                    bpData.UpdateBloodPressure(i.Value);
+                    bpData.UpdateBloodPressure(x.Value);
                     Thread.Sleep(500);
 
                 }
             }
         }
+
+        public void UpdateDiaSysData(List<DTO_BloodPressure> bps, MeasurementModel bpData)
+        {
+            //while (true)
+            //{
+                
+            //    List<int> diasysList = new List<int>();
+            //    foreach (DTO_BloodPressure x in bps)
+            //    {
+            //        diasysList.Add(x.Value);
+            //        Thread.Sleep(500);
+            //    }
+            //    int max = diasysList.Max();
+
+            //    bpData.UpdateBloodPressure(max);
+            //    diasysList.Clear();
+            //}
+        }
+
     }
 }

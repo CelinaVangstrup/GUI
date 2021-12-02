@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ST3PRJ3.DTO
 {
-    public class DTO_BloodPressure
+    public class DTO_DiaSysPressure
     {
-        public int Value;
-        public DateTime DateTime;
+        public string SystolicPressure;
+        public string DiastolicPressure;
     }
 }

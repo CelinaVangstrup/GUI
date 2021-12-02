@@ -95,13 +95,14 @@
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="Core\ViewModelBase.cs" />
-    <Compile Include="Data\BloodPressureThread.cs" />
+    <Compile Include="Data\MeasureThread.cs" />
     <Compile Include="Data\BloodPressureFileReader.cs" />
     <Compile Include="Data\BloodPressureUDPReader.cs" />
     <Compile Include="DTO\DTO_BloodPressure.cs" />
+    <Compile Include="DTO\DTO_DiaSysPressure.cs" />
     <Compile Include="MVVM\Models\AbstractMeasurement.cs" />
     <Compile Include="MVVM\Models\IMeasurementObserver.cs" />
-    <Compile Include="MVVM\Models\Measurement.cs" />
+    <Compile Include="MVVM\Models\MeasurementModel.cs" />
     <Compile Include="Data\MeasuremntDataProvider.cs" />
     <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LoginViewModel.cs" />
