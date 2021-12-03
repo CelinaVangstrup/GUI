@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using ST3PRJ3.DTO;
 
 namespace ST3PRJ3.Data
 {
@@ -50,11 +51,18 @@ namespace ST3PRJ3.Data
             sQLiteCommand.ExecuteNonQuery();
         }
 
-        public static void uploadData()
+        //Upload blodtryk til lokal database
+        public void uploadData(DTO_DBInfo bpData)
         {
-            BloodPressureUDPReader data = new BloodPressureUDPReader();
+            //string insertStringToDB = "INSERT INTO BPMEASURMENT (personnumber,date, bpdata)
+            
+            //using (SqlCommand command = new SqlCommand(insertStringDOEDBMaeling, connect))
+            //{
 
-            object datalist = data.ReadBloodPressureFromUDP();
+            //}
+            //BloodPressureUDPReader data = new BloodPressureUDPReader();
+
+            //object datalist = data.ReadBloodPressureFromUDP();
         
             
             //sQLiteCommand.CommandText = "INSERT INTO SampleTable(Col1, Col2) VALUES ('PersonNumber', bloodpressureData);";

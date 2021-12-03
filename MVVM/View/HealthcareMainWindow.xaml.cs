@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ST3PRJ3.MVVM.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,31 @@ namespace ST3PRJ3.View
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
+        }
+
+        private void RegisterPatient_Checked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new HomeView();
+        }
+
+        private void MakeMeasurement_Checked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new MakeMeasurementView();
+        }
+
+        private void History_Checked(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Threshhold_Checked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ThresholdValues();
+        }
+
+        private void Logout_Checked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new LogIn();
         }
     }
 }

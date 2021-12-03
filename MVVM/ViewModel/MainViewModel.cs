@@ -36,27 +36,9 @@ namespace ST3PRJ3.MVVM.ViewModel
 
         public MainViewModel()
         {
-            //HomeVM = new HomeViewModel();
-            //MakeMeasurementVM = new MakeMeasurementViewModel();
-            //PatientInformationVM = new PatientInformationViewModel();
-            //CurrentView = HomeVM;
-            //HomeViewCommand = new RelayCommand(o =>
-            //{
-            //    CurrentView = HomeVM;
-            //});
-
-            //MakeMeasurementViewCommand = new RelayCommand(o =>
-            //{
-            //    CurrentView = MakeMeasurementVM;
-
-            //});
-
-
-            //PatientInformationViewCommand = new RelayCommand(o =>
-            //{
-            //    CurrentView = PatientInformationVM;
-
-            //});
+           
         }
+
+
     }
 }

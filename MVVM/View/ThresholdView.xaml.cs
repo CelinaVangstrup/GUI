@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ST3PRJ3.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for ThresholdValues.xaml
+    /// Interaction logic for ThresholdView.xaml
     /// </summary>
-    public partial class ThresholdValues : UserControl
+    public partial class ThresholdView : UserControl
     {
-        public ThresholdValues()
+        public ThresholdView()
         {
             InitializeComponent();
         }

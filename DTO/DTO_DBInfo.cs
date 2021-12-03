@@ -10,10 +10,12 @@ namespace ST3PRJ3.DTO
     {
         public string _personNumber { get; set; }
         public int _bpData { get; set; }
+        public DateTime _dato { get; set; }
 
-        public DTO_DBInfo(string PersonNumber, int _BPData)
+        public DTO_DBInfo(string PersonNumber, DateTime Date, int _BPData)
         {
             _personNumber = PersonNumber;
+            _dato = Date;
             _bpData = _BPData;
         }
     }

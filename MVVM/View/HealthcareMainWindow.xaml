@@ -11,13 +11,27 @@
         ResizeMode="CanResizeWithGrip"
         Background="Transparent"
         AllowsTransparency="True"
-        MouseDown="MainWindow_MouseDown"
-        >
+        MouseDown="MainWindow_MouseDown" >
 
     <Window.DataContext>
         <viewModel:MainViewModel></viewModel:MainViewModel>
     </Window.DataContext>
 
+    <Window.Resources>
+        <DataTemplate x:Name="HomeView" DataType="{x:Type viewModel:HomeViewModel}">
+            <views:HomeView DataContext="{Binding}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Name="MakeMeasurement" DataType="{x:Type viewModel:MakeMeasurementViewModel}">
+            <views:MakeMeasurementView DataContext="{Binding}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Name="Threshold" DataType="{x:Type viewModel:ThresholdValuesViewModel}">
+            <views:ThresholdView DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
+
+   
 
 
 
@@ -45,34 +59,39 @@
 
 
             <StackPanel Grid.Row="1">
-                <RadioButton Content="Registrer patient"
+                <RadioButton Name="RegisterPatient"
+                             Content="Registrer patient"
                              Height="50"
                              FontSize="22"
                              Foreground="Black"
                              Style="{StaticResource ButtonSide}"
                              IsChecked="True"
-                             Command="{Binding HomeViewCommand}"/>
-                <RadioButton Content="Foretag måling"
+                             Command="{Binding HomeViewCommand}" Checked="RegisterPatient_Checked"/>
+                <RadioButton Name="MakeMeasurement"
+                             Content="Foretag måling"
                              Height="50"
                              FontSize="22"
                              Foreground="Black"
                              Style="{StaticResource ButtonSide}"
-                             Command="{Binding MakeMeasurementViewCommand}"/>
-                <RadioButton Content="Historik"
+                             Command="{Binding MakeMeasurementViewCommand}" Checked="MakeMeasurement_Checked"/>
+                <RadioButton Name="History"
+                             Content="Historik"
                              Height="50"
                              FontSize="22"
                              Foreground="Black"
-                             Style="{StaticResource ButtonSide}"/>
-                <RadioButton Content="Indtast grænseværdier"
+                             Style="{StaticResource ButtonSide}" Checked="History_Checked"/>
+                <RadioButton Name="Threshhold"
+                             Content="Indtast grænseværdier"
                              Height="50"
                              FontSize="22"
                              Foreground="Black"
-                             Style="{StaticResource ButtonSide}"/>
-                <RadioButton Content="Log ud"
+                             Style="{StaticResource ButtonSide}" Checked="Threshhold_Checked"/>
+                <RadioButton Name="Logout"
+                             Content="Log ud"
                              Height="50"
                              FontSize="22"
                              Foreground="Black"
-                             Style="{StaticResource ButtonSide}"/>
+                             Style="{StaticResource ButtonSide}" Checked="Logout_Checked"/>
             </StackPanel>
 
 

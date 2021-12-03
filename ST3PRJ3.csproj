@@ -131,7 +131,7 @@
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MakeMeasurementViewModel.cs" />
     <Compile Include="MVVM\ViewModel\PatientInformationViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\ThresholdValuesViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\ThresholdViewModel.cs" />
     <Compile Include="MVVM\View\HealthcareMainWindow.xaml.cs">
       <DependentUpon>HealthcareMainWindow.xaml</DependentUpon>
     </Compile>
@@ -153,6 +153,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MVVM\View\ThresholdView.xaml.cs">
+      <DependentUpon>ThresholdView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service\IWindowService.cs" />
     <Compile Include="Service\WindowNavigationService.cs" />
@@ -180,7 +183,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\ThresholdValuesView.xaml">
+    <Page Include="MVVM\View\ThresholdView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,9 +201,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\View\ThresholdValuesView.xaml.cs">
-      <DependentUpon>ThresholdValuesView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
