@@ -11,7 +11,7 @@ namespace ST3PRJ3.Data
 {
     public class BloodPressureUDPReader
     {
-        public List<DTO_BloodPressure> ReadBloodPressureFromUDP(string path)
+        public List<DTO_BloodPressure> ReadBloodPressureFromUDP()
         {
             bool done = false;
             int listenPort = 55600;

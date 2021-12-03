@@ -13,37 +13,37 @@ namespace ST3PRJ3.Data
         private readonly string _path;
         private readonly MeasurementModel _BpData;
 
-        public MeasureThread(string path, MeasurementModel BpData)
+        public MeasureThread(MeasurementModel BpData)
         {
-            _path = path;
+            //_path = path;
             _BpData = BpData;
         }
 
         public void MeasureTheBloodpressure()
         {
-            BloodPressureFileReader bloodPressureFileReader = new BloodPressureFileReader();
+            //BloodPressureFileReader bloodPressureFileReader = new BloodPressureFileReader();
             MeasuremntDataProvider measurementDataProvider = new MeasuremntDataProvider();
-            //BloodPressureUDPReader bloodPressureUDPReader = new BloodPressureUDPReader();
+            BloodPressureUDPReader bloodPressureUDPReader = new BloodPressureUDPReader();
 
-            List<DTO_BloodPressure> bloodPressureInFile = bloodPressureFileReader.ReadBloodPressureInFile(_path);
-            //List<DTO_BloodPressure> bloodPressureFromUDP = bloodPressureUDPReader.ReadBloodPressureFromUDP(_path);
+            //List<DTO_BloodPressure> bloodPressureInFile = bloodPressureFileReader.ReadBloodPressureInFile(_path);
+            List<DTO_BloodPressure> bloodPressureFromUDP = bloodPressureUDPReader.ReadBloodPressureFromUDP();
            
-            measurementDataProvider.UpdateBPData(bloodPressureInFile, _BpData);
-            //measurementDataProvider.UpdateBPData(bloodPressureFromUDP, _BpData);
+            //measurementDataProvider.UpdateBPData(bloodPressureInFile, _BpData);
+            measurementDataProvider.UpdateBPData(bloodPressureFromUDP, _BpData);
 
             
         }
 
         public void MeasureTheDiaSysPressure()
         {
-            BloodPressureFileReader bloodPressureFileReader = new BloodPressureFileReader();
-            MeasuremntDataProvider measurementDataProvider = new MeasuremntDataProvider();
-            //BloodPressureUDPReader bloodPressureUDPReader = new BloodPressureUDPReader();
+            //BloodPressureFileReader bloodPressureFileReader = new BloodPressureFileReader();
+            //MeasuremntDataProvider measurementDataProvider = new MeasuremntDataProvider();
+            ////BloodPressureUDPReader bloodPressureUDPReader = new BloodPressureUDPReader();
 
-            List<DTO_BloodPressure> bloodPressureInFile = bloodPressureFileReader.ReadBloodPressureInFile(_path);
-            //List<DTO_BloodPressure> bloodPressureFromUDP = bloodPressureUDPReader.ReadBloodPressureFromUDP(_path);
+            //List<DTO_BloodPressure> bloodPressureInFile = bloodPressureFileReader.ReadBloodPressureInFile(_path);
+            ////List<DTO_BloodPressure> bloodPressureFromUDP = bloodPressureUDPReader.ReadBloodPressureFromUDP();
 
-            measurementDataProvider.UpdateDiaSysData(bloodPressureInFile, _BpData);
+            //measurementDataProvider.UpdateDiaSysData(bloodPressureInFile, _BpData);
             //measurementDataProvider.UpdateBPData(bloodPressureFromUDP, _BpData);
 
 

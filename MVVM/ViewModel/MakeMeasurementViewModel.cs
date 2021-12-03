@@ -23,10 +23,6 @@ namespace ST3PRJ3.MVVM.ViewModel
 {
     class MakeMeasurementViewModel : INotifyPropertyChanged, IMeasurementObserver
     {
-       
-
-        
-        public ICommand SaveButtonClickCommand { get; set; }
         private int _bloodPressure;
         private int _diaSysPressure;
         private ChartValues<DTO_BloodPressure> _ChartValues;
@@ -152,8 +148,17 @@ namespace ST3PRJ3.MVVM.ViewModel
 
         public void StartButtonClick()
         {
-            MeasureThread bloodPressureThread = new MeasureThread(_file, _measurementModel);
+            //Vi starter med at få sendt start måling til RPI igennem UDP
+            UDPSender udpSender = new UDPSender();
+            UDPController udpController = new UDPController(udpSender);
+            Thread StartButtonIsPressedThread = new Thread(udpController.Run);
+            StartButtonIsPressedThread.Start();
+
+            //MeasureThread bloodPressureThread = new MeasureThread(_file, _measurementModel);
+
+            MeasureThread bloodPressureThread = new MeasureThread(_measurementModel);
             
+
             Thread bpThread = new Thread(bloodPressureThread.MeasureTheBloodpressure);
             Thread diaSysThread = new Thread(bloodPressureThread.MeasureTheDiaSysPressure);
 
@@ -184,16 +189,37 @@ namespace ST3PRJ3.MVVM.ViewModel
 
         public void StopButtonClick()
         {
-            
+            // stopper tråd
+
             //bpThread.Abort();
             //diaSysThread.Abort();
+
+          
 
 
         }
 
-        public void SaveButtonClick(object parameter)
+        #region SaveButtonClickCommand
+        public ICommand _saveButtonClickCommand;
+
+        public ICommand SaveButtonClickCommand => _saveButtonClickCommand ?? (_saveButtonClickCommand =
+                                                    new RelayCommand(SaveButtonClick,
+                                                        SaveButtonClickCanExecute));
+        private bool SaveButtonClickCanExecute()
+        {
+            return true;
+        }
+        #endregion
+
+        public void SaveButtonClick()
         {
             //gemmer målingen
+
+            DataBase localdatabase = new DataBase(); // Opretter objektet databse / opretter database hvis den ikke allerede er oprettet
+
+            //localdatabase.OpenConnection(); // Åbner forbindelse til database
+
+            //localdatabase.CloseConnection(); // Lukker forbindelse til database
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
