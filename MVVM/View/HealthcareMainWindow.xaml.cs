@@ -49,7 +49,7 @@ namespace ST3PRJ3.View
 
         private void Threshhold_Checked(object sender, RoutedEventArgs e)
         {
-            DataContext = new ThresholdValues();
+            DataContext = new ThresholdView();
         }
 
         private void Logout_Checked(object sender, RoutedEventArgs e)

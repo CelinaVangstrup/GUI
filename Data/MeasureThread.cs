@@ -13,23 +13,23 @@ namespace ST3PRJ3.Data
         private readonly string _path;
         private readonly MeasurementModel _BpData;
 
-        public MeasureThread(MeasurementModel BpData)
+        public MeasureThread(string path, MeasurementModel BpData)
         {
-            //_path = path;
+            _path = path;
             _BpData = BpData;
         }
 
         public void MeasureTheBloodpressure()
         {
-            //BloodPressureFileReader bloodPressureFileReader = new BloodPressureFileReader();
+            BloodPressureFileReader bloodPressureFileReader = new BloodPressureFileReader();
             MeasuremntDataProvider measurementDataProvider = new MeasuremntDataProvider();
-            BloodPressureUDPReader bloodPressureUDPReader = new BloodPressureUDPReader();
+            //BloodPressureUDPReader bloodPressureUDPReader = new BloodPressureUDPReader();
 
-            //List<DTO_BloodPressure> bloodPressureInFile = bloodPressureFileReader.ReadBloodPressureInFile(_path);
-            List<DTO_BloodPressure> bloodPressureFromUDP = bloodPressureUDPReader.ReadBloodPressureFromUDP();
+            List<DTO_BloodPressure> bloodPressureInFile = bloodPressureFileReader.ReadBloodPressureInFile(_path);
+            //List<DTO_BloodPressure> bloodPressureFromUDP = bloodPressureUDPReader.ReadBloodPressureFromUDP();
            
-            //measurementDataProvider.UpdateBPData(bloodPressureInFile, _BpData);
-            measurementDataProvider.UpdateBPData(bloodPressureFromUDP, _BpData);
+            measurementDataProvider.UpdateBPData(bloodPressureInFile, _BpData);
+            //measurementDataProvider.UpdateBPData(bloodPressureFromUDP, _BpData);
 
             
         }

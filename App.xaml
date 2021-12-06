@@ -4,8 +4,8 @@
              xmlns:local="clr-namespace:ST3PRJ3"
              xmlns:viewModel ="clr-namespace:ST3PRJ3.MVVM.ViewModel"
              xmlns:view ="clr-namespace:ST3PRJ3.MVVM.View"
+           
              StartupUri="MVVM/View/MakeMeasurementView.xaml">
-             <!--StartupUri="MVVM/View/LogIn.xaml"-->
     <!--StartupUri="MVVM/View/MakeMeasurementView.xaml"-->
 
     <Application.Resources> 

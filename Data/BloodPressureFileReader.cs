@@ -13,6 +13,7 @@ namespace ST3PRJ3.Data
         public List<DTO_BloodPressure> ReadBloodPressureInFile(string path)
         {
             List<DTO_BloodPressure> bloodpressureList = new List<DTO_BloodPressure>();
+            
 
             // open file
             string[] allLines = File.ReadAllLines(path);

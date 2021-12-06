@@ -22,13 +22,11 @@
             <views:HomeView DataContext="{Binding}"/>
         </DataTemplate>
 
-        <DataTemplate x:Name="MakeMeasurement" DataType="{x:Type viewModel:MakeMeasurementViewModel}">
-            <views:MakeMeasurementView DataContext="{Binding}"/>
-        </DataTemplate>
+        
 
-        <DataTemplate x:Name="Threshold" DataType="{x:Type viewModel:ThresholdValuesViewModel}">
+        <!--<DataTemplate x:Name="Threshold" DataType="{x:Type viewModel:ThresholdViewModel}">
             <views:ThresholdView DataContext="{Binding}"/>
-        </DataTemplate>
+        </DataTemplate>-->
     </Window.Resources>
 
    
@@ -66,14 +64,14 @@
                              Foreground="Black"
                              Style="{StaticResource ButtonSide}"
                              IsChecked="True"
-                             Command="{Binding HomeViewCommand}" Checked="RegisterPatient_Checked"/>
+                             Checked="RegisterPatient_Checked"/>
                 <RadioButton Name="MakeMeasurement"
                              Content="Foretag måling"
                              Height="50"
                              FontSize="22"
                              Foreground="Black"
                              Style="{StaticResource ButtonSide}"
-                             Command="{Binding MakeMeasurementViewCommand}" Checked="MakeMeasurement_Checked"/>
+                             Checked="MakeMeasurement_Checked"/>
                 <RadioButton Name="History"
                              Content="Historik"
                              Height="50"

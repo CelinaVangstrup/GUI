@@ -1,10 +1,12 @@
 ﻿using LiveCharts;
+using LiveCharts.Configurations;
 using ST3PRJ3.DTO;
 using ST3PRJ3.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,16 +23,18 @@ namespace ST3PRJ3.MVVM.View
     /// <summary>
     /// Interaction logic for MakeMeasurementView.xaml
     /// </summary>
-    public partial class MakeMeasurementView : UserControl
+    public partial class MakeMeasurementView : Window
     {
-        
+
         public MakeMeasurementView()
         {
             InitializeComponent();
-            DataContext = new MakeMeasurementViewModel();
 
+        
             
+     
         }
+
 
 
     }

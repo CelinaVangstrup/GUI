@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ST3PRJ3.MVVM.ViewModel
 {
-    internal class ThresholdViewModel
+     class ThresholdViewModel
     {
     }
 }

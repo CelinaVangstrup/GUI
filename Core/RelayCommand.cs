@@ -13,11 +13,11 @@ namespace ST3PRJ3.Core
     /// default return value for the CanExecute
     /// method is 'true'.
     /// </summary>
-    public class RelayCommand<T> : ICommand
+    public class RelayCommand2<T> : ICommand
     {
         #region Constructors
 
-        public RelayCommand(Action<T> execute)
+        public RelayCommand2(Action<T> execute)
             : this(execute, null)
         {
         }
@@ -27,7 +27,7 @@ namespace ST3PRJ3.Core
         /// </summary>
         /// <param name="execute">The execution logic.</param>
         /// <param name="canExecute">The execution status logic.</param>
-        public RelayCommand(Action<T> execute, Predicate<T> canExecute)
+        public RelayCommand2(Action<T> execute, Predicate<T> canExecute)
         {
             if (execute == null)
                 throw new ArgumentNullException("execute");

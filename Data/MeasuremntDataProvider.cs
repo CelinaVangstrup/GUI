@@ -17,6 +17,7 @@ namespace ST3PRJ3.MVVM.Models
                 foreach (DTO_BloodPressure x in bps)
                 {
                     bpData.UpdateBloodPressure(x.Value);
+                    
                     Thread.Sleep(500);
 
                 }

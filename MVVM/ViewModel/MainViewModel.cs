@@ -36,7 +36,6 @@ namespace ST3PRJ3.MVVM.ViewModel
 
         public MainViewModel()
         {
-           
         }
 
 

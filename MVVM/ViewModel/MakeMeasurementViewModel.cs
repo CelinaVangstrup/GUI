@@ -25,7 +25,8 @@ namespace ST3PRJ3.MVVM.ViewModel
     {
         private int _bloodPressure;
         private int _diaSysPressure;
-        private ChartValues<DTO_BloodPressure> _ChartValues;
+        public ChartValues<DTO_BloodPressure> ChartValues { get; set; }
+        private double _trend;
         private string _file = @"C:\Users\Søren Mehlsen\OneDrive\source\repos\GUI\BPfiles\MaalingGris.txt";
         private string _udp;
         public double AxisStep { get; set; }
@@ -41,29 +42,20 @@ namespace ST3PRJ3.MVVM.ViewModel
         public MakeMeasurementViewModel()
         {
             _measurementModel.Add(this);
-            
 
-            //var mapper = Mappers.Xy<DTO_BloodPressure>()
-            //    .X(model => model.DateTime.Ticks)   //use DateTime.Ticks as X
-            //    .Y(model => model.Value);           //use the value property as Y
+            var mapper = Mappers.Xy<DTO_BloodPressure>()
+                .X(model => model.DateTime.Ticks)   //use DateTime.Ticks as X
+                .Y(model => model.Value);           //use the value property as Y
 
-            ////lets save the mapper globally.
-            //Charting.For<DTO_BloodPressure>(mapper);
+            //lets save the mapper globally.
+            Charting.For<DTO_BloodPressure>(mapper);
 
-            ////the values property will store our values array
-            
+            //the values property will store our values array
+            ChartValues = new ChartValues<DTO_BloodPressure>();
 
-            ////lets set how to display the X Labels
-            //DateTimeFormatter = value => new DateTime((long)value).ToString("ss");
+            DateTimeFormatter = value => new DateTime((long)value).ToString("ss");
 
-            ////AxisStep forces the distance between each separator in the X axis
-            //AxisStep = TimeSpan.FromSeconds(1).Ticks;
-            ////AxisUnit forces lets the axis know that we are plotting seconds
-            ////this is not always necessary, but it can prevent wrong labeling
-            //AxisUnit = TimeSpan.TicksPerSecond;
-
-            //SetAxisLimits(DateTime.Now);
-           
+            if (ChartValues.Count > 100) ChartValues.RemoveAt(0);
 
         }
 
@@ -77,15 +69,7 @@ namespace ST3PRJ3.MVVM.ViewModel
             }
         }
 
-        public ChartValues<DTO_BloodPressure> ChartValues
-        {
-            get => _ChartValues;
-            set
-            {
-                _ChartValues = value;
-                OnPropertyChanged();
-            }
-        }
+
 
         public int BloodPressure
         {
@@ -128,11 +112,9 @@ namespace ST3PRJ3.MVVM.ViewModel
         }
 
 
-        private void SetAxisLimits(DateTime now)
-        {
-            AxisMax = now.Ticks + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 1 second ahead
-            AxisMin = now.Ticks - TimeSpan.FromSeconds(8).Ticks; // and 8 seconds behind
-        }
+
+
+     
 
         #region StartButtonClickCommand
         public ICommand _startButtonClickCommand;
@@ -149,32 +131,61 @@ namespace ST3PRJ3.MVVM.ViewModel
         public void StartButtonClick()
         {
             //Vi starter med at få sendt start måling til RPI igennem UDP
-            UDPSender udpSender = new UDPSender();
-            UDPController udpController = new UDPController(udpSender);
-            Thread StartButtonIsPressedThread = new Thread(udpController.Run);
-            StartButtonIsPressedThread.Start();
+            //UDPSender udpSender = new UDPSender();
+            //UDPController udpController = new UDPController(udpSender);
+            //Thread StartButtonIsPressedThread = new Thread(udpController.Run);
+            //StartButtonIsPressedThread.Start();
 
-            //MeasureThread bloodPressureThread = new MeasureThread(_file, _measurementModel);
+            MeasureThread bloodPressureThread = new MeasureThread(_file, _measurementModel);
 
-            MeasureThread bloodPressureThread = new MeasureThread(_measurementModel);
-            
+            //MeasureThread bloodPressureThread = new MeasureThread(_measurementModel);
 
-            Thread bpThread = new Thread(bloodPressureThread.MeasureTheBloodpressure);
-            Thread diaSysThread = new Thread(bloodPressureThread.MeasureTheDiaSysPressure);
+
+            Thread bpThread1 = new Thread(bloodPressureThread.MeasureTheBloodpressure);
+            Thread bpThread = new Thread(Read);
+            //Thread diaSysThread = new Thread(bloodPressureThread.MeasureTheDiaSysPressure);
 
             bpThread.IsBackground = true;
-            diaSysThread.IsBackground = true;
-            
+            bpThread1.IsBackground = true;
+            //diaSysThread.IsBackground = true;
+
+
+            //diaSysThread.Start();
             bpThread.Start();
-            diaSysThread.Start();
+            bpThread1.Start();
+
+            //Task.Factory.StartNew(Read);
+
 
 
 
 
 
             // Thread for analyze puls
+
         }
 
+        public void Read()
+        {
+            var r = new Random();
+
+            while (true)
+            {
+                Thread.Sleep(30);
+                var now = DateTime.Now;
+
+                _trend += r.Next(-8, 10);
+
+                ChartValues.Add(new DTO_BloodPressure
+                {
+                    DateTime = now,
+                    Value = Convert.ToInt32(_trend)
+                });
+            }
+        }
+
+
+    
         #region StopButtonClickCommand
         public ICommand _stopButtonClickCommand;
 
@@ -234,8 +245,9 @@ namespace ST3PRJ3.MVVM.ViewModel
         public void Update(AbstractMeasurement.UpdatedField field)
         {
             BloodPressure = _measurementModel.BloodPressure;
+            //ChartValues = _measurementModel.BloodPressure;
 
-            DiaSysPressure = _measurementModel.DiaSysPressure;
+            //DiaSysPressure = _measurementModel.DiaSysPressure;
 
             //_ChartValues = new ChartValues<double>();
 
